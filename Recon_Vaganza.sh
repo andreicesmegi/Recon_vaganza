@@ -57,7 +57,6 @@ resp=$(curl -s -H "user-agent: Obaoba" -o /dev/null -w "%{http_code}" $site/$pal
 
 if [ $resp == "200" ];then
         echo "$site/$palavra"
-        echo ""
 fi
 done
 
@@ -70,13 +69,11 @@ resp_1=$(curl -s -H "user-agent: Obaoba" -o /dev/null -w "%{http_code}" $site/$p
 
 if [ $resp_1 == "200" ];then
         echo "+ $site/$palavraz/"
-        echo ""
 
         for arquivo in $(cat $Load_list);do
         resp_arq=$(curl -s -H "user-agent: Obaoba" -o /dev/null -w "%{http_code}" $site/$palavraz/$arquivo)
         if [ $resp_arq == "200" ];then
                 echo "+--> $site/$palavraz/$arquivo"
-                echo ""
         fi
         done
 fi
